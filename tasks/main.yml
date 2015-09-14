@@ -20,10 +20,16 @@
   with_items:
     jdks
 
-- name: create default java symlink
+- name: create default java symlink for jdk
   file:
     src: "/usr/local/{{ default_jdk }}"
     dest: "/usr/local/jdk"
+    state: link
+
+- name: create default java symlink for java
+  file:
+    src: "/usr/local/{{ default_jdk }}"
+    dest: "/usr/local/java"
     state: link
 
 - name: Create java profile
